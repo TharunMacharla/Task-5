@@ -1,0 +1,5 @@
+yum install docker -y
+#install docker 
+  
+service docker start
+#check docker status
