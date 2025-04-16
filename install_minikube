@@ -1,0 +1,17 @@
+curl -Lo minikube https://github.com/kubernetes/minikube/releases/download/v1.25.2/minikube-linux-amd64
+# Downloads the Minikube binary (version 1.25.2) from GitHub and saves it as "minikube"
+
+chmod +x minikube
+# Makes the downloaded Minikube binary executable
+
+sudo mv minikube /usr/local/bin/
+# Moves the binary to /usr/local/bin so it can be accessed system-wide
+
+yum install conntrack -y
+# Installs the conntrack package (required by Minikube for networking and pod-to-pod communication)
+
+export PATH=/usr/local/bin:$PATH
+# Ensures /usr/local/bin is included in the system PATH for the current session
+
+minikube start --driver=none
+# Starts a Minikube cluster using the "none" driver (i.e., installs directly on the host without virtualization)
