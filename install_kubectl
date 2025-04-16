@@ -1,0 +1,20 @@
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.20.4/2021-04-12/bin/linux/amd64/kubectl
+# Downloads the kubectl binary for EKS (version 1.20.4) from the AWS S3 bucket and saves it locally as "kubectl"
+
+chmod +x ./kubectl
+# Makes the downloaded kubectl binary executable
+
+mkdir -p $HOME/bin
+# Creates a bin directory inside your home folder if it doesn't already exist
+
+cp ./kubectl $HOME/bin/kubectl
+# Copies the kubectl binary into your personal bin directory
+
+export PATH=$HOME/bin:$PATH
+# Temporarily adds your personal bin directory to the system PATH for the current terminal session
+
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+# Permanently adds the bin directory to PATH by appending it to .bashrc (applies to future sessions)
+
+kubectl version --short --client
+# Verifies that kubectl is installed and shows the client version
